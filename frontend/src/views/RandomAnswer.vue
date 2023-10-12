@@ -116,52 +116,12 @@ export default {
   padding: 0 10%;
 }
 
-@media (max-width: 767px) {
-  .back-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 12%;
-    top: 3%;
-    margin-top: 1%;
-  }
-  .back-img {
-    width: 70%;
-    height: 70%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .back-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 14%;
-    top: 1.3%;
-    margin-top: 1%;
-  }
-  .back-img {
-    width: 70%;
-    height: 70%;
-  }
-}
-
-@media (min-width: 1024px) {
-  .back-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 14.5%;
-    top: 1.4%;
-    margin-top: 0.3%;
-  }
-  .back-img {
-    width: 20px;
-    height: 20px;
-  }
+.question {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .title {
@@ -172,16 +132,8 @@ export default {
 }
 .background {
   background-color: #fff9c8;
-  height: 100vh;
+  height: 100%;
   position: relative;
-}
-
-.question {
-  background-color: white;
-  height: 16%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .letter {
@@ -190,12 +142,12 @@ export default {
 }
 
 .memo-box {
-  width: 70%;
+  width: 90%;
+  height: 100px;
   margin: 30px 0 15px 0;
   border-radius: 20px;
   border: none;
   box-shadow: 0px 1.5px 0px 1.5px #d3d3d3;
-  height: 18%;
   background-color: white;
   display: inline-block;
   white-space: pre-line;
@@ -225,5 +177,84 @@ export default {
   -webkit-line-clamp: 1;
   overflow: hidden;
   text-overflow: ellipsis;
+  margin-left: 20px;
+}
+
+@media (max-width: 767px) {
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 12%;
+    top: 3%;
+    margin-top: 1%;
+  }
+  .back-img {
+    width: 70%;
+    height: 70%;
+  }
+
+  .question {
+    height: 14%;
+    border-radius: 20px;
+  }
+  .memo-box {
+    height: 16%;
+  }
+
+  .background {
+    height: 100vh;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 14%;
+    top: 1.3%;
+    margin-top: 1%;
+  }
+  .back-img {
+    width: 70%;
+    height: 70%;
+  }
+
+  .question {
+    height: 16%;
+    border-radius: 20px;
+  }
+
+  .memo-box {
+    height: 16%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 14.5%;
+    top: 1.4%;
+    margin-top: 0.3%;
+  }
+  .back-img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .question {
+    height: 16%;
+    border-radius: 20px;
+  }
+
+  .memo-box {
+    height: 17%;
+  }
 }
 </style>
