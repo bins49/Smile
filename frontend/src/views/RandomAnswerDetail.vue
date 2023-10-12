@@ -28,8 +28,10 @@
         <p class="content">{{ content }}</p>
       </div>
       <hr />
-      <div class="comments-container">
-        <div v-if="comments.length === 0">아직 댓글이 없습니다.</div>
+      <div :style="containerStyle">
+        <div v-if="comments.length === 0" class="nocomment">
+          아직 댓글이 없습니다.
+        </div>
         <div
           class="comment-box"
           v-for="(
@@ -96,7 +98,14 @@ export default {
       answer: "",
     };
   },
-  computed: {},
+  computed: {
+    containerStyle() {
+      if (this.comments.length === 0) {
+        return { overflow: "none" };
+      }
+      return { overflow: "none" };
+    },
+  },
   methods: {
     validComment() {
       if (this.newComment.trim() === "") {
@@ -221,69 +230,6 @@ export default {
   overflow: auto;
 }
 
-@media (max-width: 767px) {
-  .back-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 10%;
-    top: 1%;
-    margin-top: 1%;
-  }
-  .back-img {
-    width: 70%;
-    height: 70%;
-  }
-
-  textarea {
-    width: 80%;
-    border: none;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1023px) {
-  .back-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 9.5%;
-    top: 1.3%;
-    margin-top: 1%;
-  }
-  .back-img {
-    width: 70%;
-    height: 70%;
-  }
-
-  textarea {
-    width: 92%;
-    border: none;
-  }
-}
-
-@media (min-width: 1024px) {
-  .back-btn {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    position: absolute;
-    left: 10%;
-    top: 1%;
-    margin-top: 0.3%;
-  }
-  .back-img {
-    width: 20px;
-    height: 20px;
-  }
-
-  textarea {
-    width: 93%;
-    border: none;
-  }
-}
-
 .title {
   margin: 0;
   margin-bottom: 80px;
@@ -305,6 +251,7 @@ export default {
   display: inline-block;
   white-space: pre-line;
   word-wrap: break-word;
+  overflow-y: auto;
 }
 .small-box-control {
   display: flex;
@@ -474,5 +421,77 @@ export default {
 }
 .delete {
   color: red;
+}
+/* 모바일 뷰 */
+@media (max-width: 541px) {
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 10%;
+    top: 1%;
+    margin-top: 1%;
+  }
+  .back-img {
+    width: 70%;
+    height: 70%;
+  }
+
+  textarea {
+    width: 80%;
+    border: none;
+  }
+}
+/* 웹 뷰 */
+@media (min-width: 541px) {
+  .background {
+    height: 100%;
+  }
+  .back-btn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    left: 9.5%;
+    top: 1.3%;
+    margin-top: 1%;
+  }
+  .back-img {
+    width: 70%;
+    height: 70%;
+  }
+
+  textarea {
+    width: 92%;
+    border: none;
+  }
+
+  .small-box {
+    width: 42vw;
+    border-radius: 20px;
+    height: 70%;
+  }
+
+  .comment-box-top {
+    height: 20%;
+  }
+
+  .memo-box {
+    width: 80%;
+  }
+
+  .name-input-box {
+    width: 42.5vw;
+  }
+  .nocomment {
+    margin-left: 20px;
+  }
+  .input-with-image img {
+    right: 1.5%;
+  }
+  .answer {
+    margin-left: 20px;
+  }
 }
 </style>
