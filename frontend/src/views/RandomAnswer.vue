@@ -72,7 +72,6 @@ export default {
         )
         .then((res) => {
           this.messages = res.data;
-          console.log(this.messages);
           this.mbti = this.messages.answers.map((el) => el.User);
           this.mbtiMessage = this.messages.answers.map((obj) => {
             let totalMbti = "";
@@ -92,13 +91,14 @@ export default {
         });
     },
     selectMessage(message) {
-      console.log(message.name);
+      const params = {
+        id: message.id,
+        mbti: message.mbti,
+      };
+
       this.$router.push({
         name: "randomanswerdetail",
-        params: {
-          id: message.id,
-          mbti: message.mbti,
-        },
+        params: params,
       });
     },
     back() {
