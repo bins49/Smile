@@ -104,7 +104,6 @@ export default {
           this.randomMessage = res.data;
           this.message = this.randomMessage.question;
           this.$store.commit("SET_ID", this.randomMessage.id);
-          console.log(this.randomMessage);
         });
     },
     validComment() {
@@ -125,8 +124,8 @@ export default {
             withCredentials: true,
           })
           .then((res) => {
-            console.log(res.data);
             this.$store.commit("SET_ANSWERED", true);
+            console.log(res.data);
           })
           .catch((error) => {
             console.log(error);

@@ -41,7 +41,6 @@ export default {
           this.randomMessage = res.data;
           this.message = this.randomMessage.question;
           this.$store.commit("SET_ID", this.randomMessage.id);
-          console.log(this.randomMessage);
         });
     },
     async getAnswer() {
@@ -157,5 +156,34 @@ textarea {
   border: none;
   background-color: #f59607;
   margin: 1.3% 10% 0 0;
+}
+
+@media (min-width: 541px) {
+  .background {
+    height: 100%;
+  }
+
+  .question {
+    width: 100%;
+  }
+  .my-answer {
+    width: 100%;
+  }
+  .second-title {
+    padding-left: 10px;
+  }
+
+  .memo-box {
+    width: 100%;
+  }
+  .text {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .btn {
+    margin-right: 20px;
+    height: 40px;
+  }
 }
 </style>
