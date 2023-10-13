@@ -41,7 +41,6 @@ export default {
           this.randomMessage = res.data;
           this.message = this.randomMessage.question;
           this.$store.commit("SET_ID", this.randomMessage.id);
-          console.log(this.randomMessage);
         });
     },
     async getAnswer() {
