@@ -86,7 +86,6 @@ export default {
               id: obj.id,
             };
           });
-          console.log(this.mbtiMessage.totalMbti);
         })
         .catch((error) => {
           console.log(error);
@@ -255,6 +254,12 @@ export default {
 
   .memo-box {
     height: 17%;
+  }
+  .letter {
+    font-size: 25px;
+  }
+  .back-btn {
+    left: 4.5%;
   }
 }
 </style>
