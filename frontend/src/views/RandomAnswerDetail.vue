@@ -20,7 +20,7 @@
             />
             <span class="mbti-name"> {{ $route.params.mbti }}</span>
           </div>
-          <div class="text-modify-delete">
+          <div v-if="this.userID === this.userId" class="text-modify-delete">
             <span class="writing-modify" @click="writingModify()">수정</span>
             <span class="writing-delete" @click="writingDelete()">삭제</span>
           </div>
@@ -49,7 +49,7 @@
                 <span class="mbti-id">{{ userID }}</span>
               </div>
             </div>
-            <div class="comment-actions">
+            <div v-if="this.userId === userID" class="comment-actions">
               <span class="modify" @click="modifyComment(id)">수정</span>
               <span class="delete" @click="removeComment(id)">삭제</span>
             </div>
@@ -96,6 +96,8 @@ export default {
       totalMbti: "",
       question: "",
       answer: "",
+      userID: "",
+      commentId: "",
     };
   },
   computed: {
@@ -104,6 +106,9 @@ export default {
         return { overflow: "none" };
       }
       return { overflow: "none" };
+    },
+    userId() {
+      return this.$store.state.userID;
     },
   },
   methods: {
@@ -118,9 +123,12 @@ export default {
       const commentToEdit = this.comments.find((c) => c.id === commentId);
       this.newComment = commentToEdit.comment;
       this.editingCommentId = commentId;
-      console.log(this.editingCommentId);
     },
     async postComment() {
+      // 답변 ID랑
+      if (this.userID === parseInt(this.$route.params.userID)) {
+        return;
+      }
       if (this.validComment()) {
         const formData = {
           answerID: this.$route.params.id,
@@ -166,7 +174,7 @@ export default {
         .then((res) => {
           this.answer = res.data;
           this.content = this.answer.answer.answer;
-          console.log(this.answer);
+          this.userID = this.answer.answer.userID;
         })
         .catch((error) => {
           console.log(error);
